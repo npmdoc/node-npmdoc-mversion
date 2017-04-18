@@ -1,0 +1,1196 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/mikaelbr/mversion#readme">mversion (v1.10.1)</a>
+</h1>
+<h4>A cross packaging manager module version handler/bumper</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion">module mversion</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.get">
+            function <span class="apidocSignatureSpan">mversion.</span>get
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.isPackageFile">
+            function <span class="apidocSignatureSpan">mversion.</span>isPackageFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.update">
+            function <span class="apidocSignatureSpan">mversion.</span>update
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.updateJSON">
+            function <span class="apidocSignatureSpan">mversion.</span>updateJSON
+            <span class="apidocSignatureSpan">(obj, ver)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mversion.</span>files</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mversion.</span>git</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mversion.</span>scripts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mversion.</span>versionAliases</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.files">module mversion.files</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.files.getLastChar">
+            function <span class="apidocSignatureSpan">mversion.files.</span>getLastChar
+            <span class="apidocSignatureSpan">(json)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.files.getRC">
+            function <span class="apidocSignatureSpan">mversion.files.</span>getRC
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.files.isPackageFile">
+            function <span class="apidocSignatureSpan">mversion.files.</span>isPackageFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.files.loadFiles">
+            function <span class="apidocSignatureSpan">mversion.files.</span>loadFiles
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.files.space">
+            function <span class="apidocSignatureSpan">mversion.files.</span>space
+            <span class="apidocSignatureSpan">(json)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mversion.files.</span>_files</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.get">module mversion.get</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.get.get">
+            function <span class="apidocSignatureSpan">mversion.</span>get
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.git">module mversion.git</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.git.checkout">
+            function <span class="apidocSignatureSpan">mversion.git.</span>checkout
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.git.commit">
+            function <span class="apidocSignatureSpan">mversion.git.</span>commit
+            <span class="apidocSignatureSpan">(files, message, newVer, tagName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.git.isRepositoryClean">
+            function <span class="apidocSignatureSpan">mversion.git.</span>isRepositoryClean
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.isPackageFile">module mversion.isPackageFile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.isPackageFile.isPackageFile">
+            function <span class="apidocSignatureSpan">mversion.</span>isPackageFile
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.scripts">module mversion.scripts</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.scripts.run">
+            function <span class="apidocSignatureSpan">mversion.scripts.</span>run
+            <span class="apidocSignatureSpan">(script, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.update">module mversion.update</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.update.update">
+            function <span class="apidocSignatureSpan">mversion.</span>update
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mversion.updateJSON">module mversion.updateJSON</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mversion.updateJSON.updateJSON">
+            function <span class="apidocSignatureSpan">mversion.</span>updateJSON
+            <span class="apidocSignatureSpan">(obj, ver)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion" id="apidoc.module.mversion">module mversion</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.get" id="apidoc.element.mversion.get">
+        function <span class="apidocSignatureSpan">mversion.</span>get
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (callback) {
+  var result = fUtil.loadFiles();
+  var ret = {};
+  var errors = [];
+
+  return result
+    .on('data', function (file) {
+      try {
+        var contents = JSON.parse(file.contents.toString());
+        ret[path.basename(file.path)] = contents.version;
+      } catch (e) {
+        errors.push(file.relative + ": " + e.message);
+      }
+    })
+    .on('end', function ()Â&nbsp;{
+      if (errors.length) {
+        return callback(new Error(errors.join('\n')), ret);
+      }
+      return callback(null, ret);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```shell
+npm install mversion
+```
+
+```javascript
+var mversion = require('mversion');
+
+mversion.<span class="apidocCodeKeywordSpan">get</span>(function (err, data) {
+  /*
+    data = {
+      'package.json': VERSION,
+      'component.json': VERSION
+    }
+  */
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.isPackageFile" id="apidoc.element.mversion.isPackageFile">
+        function <span class="apidocSignatureSpan">mversion.</span>isPackageFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPackageFile = function (file) {
+  for (var i = 0; i &lt; exports._files.length; i++) {
+    if (minimatch(file, exports._files[i])) {
+      return true;
+    }
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  version: 'major',
+  commitMessage: 'Bumps to version %s',
+  tagName: '%s'
+});
+// Might produce annotated tag named 1.0.0
+```
+
+### `mversion.<span class="apidocCodeKeywordSpan">isPackageFile</span>(filename) : Boolean`
+Checks whether or not the given filename is a valid package file type.
+
+Examples:
+```javascript
+assert.equal(mversion.isPackageFile('package.json'), true);
+assert.equal(mversion.isPackageFile('component.json'), true);
+assert.equal(mversion.isPackageFile('bower.json'), true);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.update" id="apidoc.element.mversion.update">
+        function <span class="apidocSignatureSpan">mversion.</span>update
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (options, callback) {
+  if (typeof options === "function") {
+    callback = options;
+    options = {};
+  }
+
+  options = options || {};
+
+  if (typeof options === "string") {
+    options = {
+      version: options,
+      noPrefix: false,
+      precommit: void 0,
+      commitMessage: void 0
+    };
+  }
+
+  if (!options.tagName) {
+    options.tagName = (options.noPrefix ? '' : 'v') + '%s';
+  }
+
+  var ver = options.version || 'minor';
+  var noPrefix = !!options.noPrefix;
+  var commitMessage = options.commitMessage || void 0;
+  var precommitCallback = options.precommit;
+  callback = callback || noop();
+
+  (function (done) {
+    if (commitMessage) {
+      return git.isRepositoryClean(done);
+    }
+    return done(null);
+  })(function(err) {
+    if (err) {
+      callback(err);
+      return void 0;
+    }
+
+    var files = [],
+        errors = [],
+        fileStream = fUtil.loadFiles(),
+        versionList = {},
+        updated = null,
+        hasSet = false;
+
+    var stored = fileStream.pipe(through.obj(function(file, e, next) {
+      if (file == null || file.isNull()) {
+        this.push(null);
+        next();
+        return;
+      }
+      var json = file.contents.toString(),
+          contents = null;
+
+      try {
+        contents = JSON.parse(json);
+      } catch (e) {
+        errors.push(new Error(file.relative + ': ' + e.message));
+        next();
+        return;
+      }
+
+      if (!hasSet) {
+        hasSet = true;
+        updated = updateJSON(contents, ver);
+
+        if (!updated) {
+          this.emit('error', new Error('Version bump failed, ' + ver + ' is not valid version.'))
+          return void 0;
+        }
+      }
+
+      contents.version = updated.version;
+      file.contents = new Buffer(JSON.stringify(contents, null, fUtil.space(json)) + fUtil.getLastChar(json));
+      versionList[path.basename(file.path)] = updated.version;
+
+      this.push(file);
+      next();
+    }))
+    .on('error', function (err) {
+      callback(err);
+    })
+    .pipe(fs.dest('./'));
+
+    stored.on('data', function (file) {
+      files.push(file.path);
+    });
+
+    stored.on('end', function () {
+      var errorMessage = null;
+      if (errors.length) {
+        errorMessage = errors.map(function (e) {
+          return " * " + e.message;
+        }).join('\n');
+      }
+
+      updated = updated || { version: 'N/A' };
+
+      var ret = {
+        newVersion: updated.version,
+        versions: versionList,
+        message: files.map(function (file) {
+          return 'Updated ' + path.basename(file);
+        }).join('\n'),
+        updatedFiles: files
+      };
+
+      if (!commitMessage || errorMessage) {
+        callback(errorMessage ? new Error(errorMessage) : null, ret);
+        return void 0;
+      }
+
+      if (!precommitCallback) {
+        return doCommit();
+      }
+
+      precommitCallback(function (err) {
+        if (err) {
+          return git.checkout();
+        }
+        doCommit();
+      });
+
+      function doCommit () {
+        var tagName = options.tagName.replace('%s', updated.version).replace('"', '').replace("'", '');
+        git.commit(files, commitMessage, updated.version, tagName, function (err) {
+          if (err) {
+            callback(err, null);
+            return void 0;
+          }
+
+          ret.message += '\nCommited to git and created tag ' + tagName;
+          callback(null, ret);
+        });
+      }
+    });
+  });
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+data = {
+  'package.json': VERSION,
+  'component.json': VERSION
+}
+  */
+});
+
+mversion.<span class="apidocCodeKeywordSpan">update</span>('minor', function (err, data) { })
+mversion.update('major', function (err, data) { })
+mversion.update({
+version: 'major',
+commitMessage: 'Some commit message for version %s'
+  }, function (err, data) { }) // Will commit/tag
+mversion.update({
+version: 'major',
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.updateJSON" id="apidoc.element.mversion.updateJSON">
+        function <span class="apidocSignatureSpan">mversion.</span>updateJSON
+        <span class="apidocSignatureSpan">(obj, ver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateJSON = function (obj, ver) {
+  ver = ver.toString().toLowerCase();
+
+  // check for aliases
+  if(ver in versionAliases){
+    ver = versionAliases[ver];
+  }
+
+  var validVer = semver.valid(ver);
+  obj = obj || {};
+  var currentVer = obj.version;
+
+  if (validVer === null) {
+    validVer = semver.inc(currentVer, ver);
+  }
+
+  if (validVer === null) {
+    return false;
+  }
+
+  obj.version = validVer;
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.files" id="apidoc.module.mversion.files">module mversion.files</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.files.getLastChar" id="apidoc.element.mversion.files.getLastChar">
+        function <span class="apidocSignatureSpan">mversion.files.</span>getLastChar
+        <span class="apidocSignatureSpan">(json)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLastChar = function (json) {
+  return (json.slice(-1) === '\n') ? '\n' : '';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (!updated) {
+      this.emit('error', new Error('Version bump failed, ' + ver + ' is not valid version.'))
+      return void 0;
+    }
+  }
+
+  contents.version = updated.version;
+  file.contents = new Buffer(JSON.stringify(contents, null, fUtil.space(json)) + fUtil.<span class="apidocCodeKeywordSpan">getLastChar
+</span>(json));
+  versionList[path.basename(file.path)] = updated.version;
+
+  this.push(file);
+  next();
+}))
+.on('error', function (err) {
+  callback(err);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.files.getRC" id="apidoc.element.mversion.files.getRC">
+        function <span class="apidocSignatureSpan">mversion.files.</span>getRC
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRC = function () {
+  return rc('mversion');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.files.isPackageFile" id="apidoc.element.mversion.files.isPackageFile">
+        function <span class="apidocSignatureSpan">mversion.files.</span>isPackageFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPackageFile = function (file) {
+  for (var i = 0; i &lt; exports._files.length; i++) {
+    if (minimatch(file, exports._files[i])) {
+      return true;
+    }
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  version: 'major',
+  commitMessage: 'Bumps to version %s',
+  tagName: '%s'
+});
+// Might produce annotated tag named 1.0.0
+```
+
+### `mversion.<span class="apidocCodeKeywordSpan">isPackageFile</span>(filename) : Boolean`
+Checks whether or not the given filename is a valid package file type.
+
+Examples:
+```javascript
+assert.equal(mversion.isPackageFile('package.json'), true);
+assert.equal(mversion.isPackageFile('component.json'), true);
+assert.equal(mversion.isPackageFile('bower.json'), true);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.files.loadFiles" id="apidoc.element.mversion.files.loadFiles">
+        function <span class="apidocSignatureSpan">mversion.files.</span>loadFiles
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFiles = function () {
+  return fs.src(exports._files);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  path = require('path'),
+  through = require('through2'),
+  fs = require('vinyl-fs'),
+  fUtil = require('./lib/files'),
+  git = require('./lib/git');
+
+exports.get = function (callback) {
+var result = fUtil.<span class="apidocCodeKeywordSpan">loadFiles</span>();
+var ret = {};
+var errors = [];
+
+return result
+  .on('data', function (file) {
+    try {
+      var contents = JSON.parse(file.contents.toString());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.files.space" id="apidoc.element.mversion.files.space">
+        function <span class="apidocSignatureSpan">mversion.files.</span>space
+        <span class="apidocSignatureSpan">(json)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">space = function (json) {
+    var match = json.match(/^(?:(\t+)|( +))"/m);
+    return match ? (match[1] ? '\t' : match[2].length) : ''
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (!updated) {
+      this.emit('error', new Error('Version bump failed, ' + ver + ' is not valid version.'))
+      return void 0;
+    }
+  }
+
+  contents.version = updated.version;
+  file.contents = new Buffer(JSON.stringify(contents, null, fUtil.<span class="apidocCodeKeywordSpan">space</span>(json)) + fUtil
+.getLastChar(json));
+  versionList[path.basename(file.path)] = updated.version;
+
+  this.push(file);
+  next();
+}))
+.on('error', function (err) {
+  callback(err);
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.get" id="apidoc.module.mversion.get">module mversion.get</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.get.get" id="apidoc.element.mversion.get.get">
+        function <span class="apidocSignatureSpan">mversion.</span>get
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (callback) {
+  var result = fUtil.loadFiles();
+  var ret = {};
+  var errors = [];
+
+  return result
+    .on('data', function (file) {
+      try {
+        var contents = JSON.parse(file.contents.toString());
+        ret[path.basename(file.path)] = contents.version;
+      } catch (e) {
+        errors.push(file.relative + ": " + e.message);
+      }
+    })
+    .on('end', function ()Â&nbsp;{
+      if (errors.length) {
+        return callback(new Error(errors.join('\n')), ret);
+      }
+      return callback(null, ret);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```shell
+npm install mversion
+```
+
+```javascript
+var mversion = require('mversion');
+
+mversion.<span class="apidocCodeKeywordSpan">get</span>(function (err, data) {
+  /*
+    data = {
+      'package.json': VERSION,
+      'component.json': VERSION
+    }
+  */
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.git" id="apidoc.module.mversion.git">module mversion.git</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.git.checkout" id="apidoc.element.mversion.git.checkout">
+        function <span class="apidocSignatureSpan">mversion.git.</span>checkout
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkout = function (callback) {
+  cp.exec(gitApp + ' checkout -- .', gitExtra, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (!precommitCallback) {
+  return doCommit();
+}
+
+precommitCallback(function (err) {
+  if (err) {
+    return git.<span class="apidocCodeKeywordSpan">checkout</span>();
+  }
+  doCommit();
+});
+
+function doCommit () {
+  var tagName = options.tagName.replace('%s', updated.version).replace('"', '').replace("
+;'", '');
+  git.commit(files, commitMessage, updated.version, tagName, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.git.commit" id="apidoc.element.mversion.git.commit">
+        function <span class="apidocSignatureSpan">mversion.git.</span>commit
+        <span class="apidocSignatureSpan">(files, message, newVer, tagName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commit = function (files, message, newVer, tagName, callback) {
+  message = message.replace('%s', newVer).replace('"', '').replace("'", '');
+  files = files.map(function (file) {
+    return '"' + escapeQuotes(file) + '"';
+  }).join(' ');
+  var functionSeries = [
+    function (done) {
+      cp.exec(gitApp + ' add ' + files, gitExtra, done);
+    },
+
+    function (done) {
+      cp.exec([gitApp, 'commit', '-m', '"' + message + '"'].join(' '), gitExtra, done);
+    },
+
+    function (done) {
+      cp.exec(
+        [
+          gitApp, 'tag', '-a', tagName, '-m', '"' + message + '"'
+        ].join(' '),
+        gitExtra, done
+      );
+    }
+  ];
+  contra.series(functionSeries, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return git.checkout();
+        }
+        doCommit();
+      });
+
+      function doCommit () {
+        var tagName = options.tagName.replace('%s', updated.version).replace('"', '').replace
+("'", '');
+        git.<span class="apidocCodeKeywordSpan">commit</span>(files, commitMessage, updated.version, tagName, function (err) {
+if (err) {
+  callback(err, null);
+  return void 0;
+}
+
+ret.message += '\nCommited to git and created tag ' + tagName;
+callback(null, ret);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.git.isRepositoryClean" id="apidoc.element.mversion.git.isRepositoryClean">
+        function <span class="apidocSignatureSpan">mversion.git.</span>isRepositoryClean
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isRepositoryClean = function (callback) {
+  cp.exec(gitApp + ' ' + [ 'status', '--porcelain' ].join(' '), gitExtra, function (er, stdout, stderr) {
+    // makeCommit parly inspired and taken from NPM version module
+    var lines = stdout.trim().split('\n').filter(function (line) {
+      var file = path.basename(line.replace(/.{1,2}\s+/, ''));
+      return line.trim() &amp;&amp; !line.match(/^\?\? /) &amp;&amp; !fUtils.isPackageFile(line);
+    }).map(function (line) {
+      return line.trim()
+    });
+
+    if (lines.length) {
+      return callback(new Error('Git working directory not clean.\n'+lines.join('\n')));
+    }
+    return callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var noPrefix = !!options.noPrefix;
+var commitMessage = options.commitMessage || void 0;
+var precommitCallback = options.precommit;
+callback = callback || noop();
+
+(function (done) {
+  if (commitMessage) {
+    return git.<span class="apidocCodeKeywordSpan">isRepositoryClean</span>(done);
+  }
+  return done(null);
+})(function(err) {
+  if (err) {
+    callback(err);
+    return void 0;
+  }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.isPackageFile" id="apidoc.module.mversion.isPackageFile">module mversion.isPackageFile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.isPackageFile.isPackageFile" id="apidoc.element.mversion.isPackageFile.isPackageFile">
+        function <span class="apidocSignatureSpan">mversion.</span>isPackageFile
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isPackageFile = function (file) {
+  for (var i = 0; i &lt; exports._files.length; i++) {
+    if (minimatch(file, exports._files[i])) {
+      return true;
+    }
+  }
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  version: 'major',
+  commitMessage: 'Bumps to version %s',
+  tagName: '%s'
+});
+// Might produce annotated tag named 1.0.0
+```
+
+### `mversion.<span class="apidocCodeKeywordSpan">isPackageFile</span>(filename) : Boolean`
+Checks whether or not the given filename is a valid package file type.
+
+Examples:
+```javascript
+assert.equal(mversion.isPackageFile('package.json'), true);
+assert.equal(mversion.isPackageFile('component.json'), true);
+assert.equal(mversion.isPackageFile('bower.json'), true);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.scripts" id="apidoc.module.mversion.scripts">module mversion.scripts</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.scripts.run" id="apidoc.element.mversion.scripts.run">
+        function <span class="apidocSignatureSpan">mversion.scripts.</span>run
+        <span class="apidocSignatureSpan">(script, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">run = function (script, cb)Â&nbsp;{
+  return exec(script, {
+    cwd: process.cwd()
+  }, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.update" id="apidoc.module.mversion.update">module mversion.update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.update.update" id="apidoc.element.mversion.update.update">
+        function <span class="apidocSignatureSpan">mversion.</span>update
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (options, callback) {
+  if (typeof options === "function") {
+    callback = options;
+    options = {};
+  }
+
+  options = options || {};
+
+  if (typeof options === "string") {
+    options = {
+      version: options,
+      noPrefix: false,
+      precommit: void 0,
+      commitMessage: void 0
+    };
+  }
+
+  if (!options.tagName) {
+    options.tagName = (options.noPrefix ? '' : 'v') + '%s';
+  }
+
+  var ver = options.version || 'minor';
+  var noPrefix = !!options.noPrefix;
+  var commitMessage = options.commitMessage || void 0;
+  var precommitCallback = options.precommit;
+  callback = callback || noop();
+
+  (function (done) {
+    if (commitMessage) {
+      return git.isRepositoryClean(done);
+    }
+    return done(null);
+  })(function(err) {
+    if (err) {
+      callback(err);
+      return void 0;
+    }
+
+    var files = [],
+        errors = [],
+        fileStream = fUtil.loadFiles(),
+        versionList = {},
+        updated = null,
+        hasSet = false;
+
+    var stored = fileStream.pipe(through.obj(function(file, e, next) {
+      if (file == null || file.isNull()) {
+        this.push(null);
+        next();
+        return;
+      }
+      var json = file.contents.toString(),
+          contents = null;
+
+      try {
+        contents = JSON.parse(json);
+      } catch (e) {
+        errors.push(new Error(file.relative + ': ' + e.message));
+        next();
+        return;
+      }
+
+      if (!hasSet) {
+        hasSet = true;
+        updated = updateJSON(contents, ver);
+
+        if (!updated) {
+          this.emit('error', new Error('Version bump failed, ' + ver + ' is not valid version.'))
+          return void 0;
+        }
+      }
+
+      contents.version = updated.version;
+      file.contents = new Buffer(JSON.stringify(contents, null, fUtil.space(json)) + fUtil.getLastChar(json));
+      versionList[path.basename(file.path)] = updated.version;
+
+      this.push(file);
+      next();
+    }))
+    .on('error', function (err) {
+      callback(err);
+    })
+    .pipe(fs.dest('./'));
+
+    stored.on('data', function (file) {
+      files.push(file.path);
+    });
+
+    stored.on('end', function () {
+      var errorMessage = null;
+      if (errors.length) {
+        errorMessage = errors.map(function (e) {
+          return " * " + e.message;
+        }).join('\n');
+      }
+
+      updated = updated || { version: 'N/A' };
+
+      var ret = {
+        newVersion: updated.version,
+        versions: versionList,
+        message: files.map(function (file) {
+          return 'Updated ' + path.basename(file);
+        }).join('\n'),
+        updatedFiles: files
+      };
+
+      if (!commitMessage || errorMessage) {
+        callback(errorMessage ? new Error(errorMessage) : null, ret);
+        return void 0;
+      }
+
+      if (!precommitCallback) {
+        return doCommit();
+      }
+
+      precommitCallback(function (err) {
+        if (err) {
+          return git.checkout();
+        }
+        doCommit();
+      });
+
+      function doCommit () {
+        var tagName = options.tagName.replace('%s', updated.version).replace('"', '').replace("'", '');
+        git.commit(files, commitMessage, updated.version, tagName, function (err) {
+          if (err) {
+            callback(err, null);
+            return void 0;
+          }
+
+          ret.message += '\nCommited to git and created tag ' + tagName;
+          callback(null, ret);
+        });
+      }
+    });
+  });
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+data = {
+  'package.json': VERSION,
+  'component.json': VERSION
+}
+  */
+});
+
+mversion.<span class="apidocCodeKeywordSpan">update</span>('minor', function (err, data) { })
+mversion.update('major', function (err, data) { })
+mversion.update({
+version: 'major',
+commitMessage: 'Some commit message for version %s'
+  }, function (err, data) { }) // Will commit/tag
+mversion.update({
+version: 'major',
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mversion.updateJSON" id="apidoc.module.mversion.updateJSON">module mversion.updateJSON</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mversion.updateJSON.updateJSON" id="apidoc.element.mversion.updateJSON.updateJSON">
+        function <span class="apidocSignatureSpan">mversion.</span>updateJSON
+        <span class="apidocSignatureSpan">(obj, ver)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateJSON = function (obj, ver) {
+  ver = ver.toString().toLowerCase();
+
+  // check for aliases
+  if(ver in versionAliases){
+    ver = versionAliases[ver];
+  }
+
+  var validVer = semver.valid(ver);
+  obj = obj || {};
+  var currentVer = obj.version;
+
+  if (validVer === null) {
+    validVer = semver.inc(currentVer, ver);
+  }
+
+  if (validVer === null) {
+    return false;
+  }
+
+  obj.version = validVer;
+  return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
