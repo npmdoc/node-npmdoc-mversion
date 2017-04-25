@@ -1,6 +1,7 @@
 # npmdoc-mversion
 
-api documentation for  [mversion (v1.10.1)](https://github.com/mikaelbr/mversion#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mversion.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mversion) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mversion.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mversion)
+#### basic api documentation for  [mversion (v1.10.1)](https://github.com/mikaelbr/mversion#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-mversion.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mversion) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mversion.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mversion)
+
 #### A cross packaging manager module version handler/bumper
 
 [![NPM](https://nodei.co/npm/mversion.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mversion)
